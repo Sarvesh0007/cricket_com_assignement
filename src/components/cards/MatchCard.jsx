@@ -4,7 +4,7 @@ const CardHeader = ({ badgeTitle = "", match }) => (
   <div className="flex flex-row justify-between w-full">
     <div className="flex flex-col">
       <h4 className="w-full m-1">
-        {match?.matchNumber.split(" ")[1] +  " "}
+        {(match?.matchNumber.split(" ")?.[1] || " ") +  " "}
         {match?.matchType}
         {badgeTitle && (
           <span className="rounded-full border-solid border-2 border-blue-400 px-2 py-1 text-blue-300 text-xxsm tracking-[2px] mx-3 justify-center items-center">

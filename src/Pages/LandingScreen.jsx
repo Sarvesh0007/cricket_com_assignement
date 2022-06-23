@@ -34,19 +34,20 @@ const LandingScreen = () => {
         menus={leagueMenus}
         activeTab={league}
         setActiveTab={setLeague}
-        twNavClasses="flex justify-center space-x-4"
+        twNavClasses="flex justify-center  rounded-full bg-gray-600 m-2 md:w-1/2 md:justify-center md:m-auto md:mt-2"
         twMenuClasses="rounded-full px-3 py-2 font-medium"
-        twActiveMenuClasses="border-solid border-2 border-green-500 rounded-full w-40 p-4 m-4 "
+        twActiveMenuClasses="border-solid border-2 border-green-500 rounded-full w-40 p-4 grow bg-gray-800"
       />
       {data &&
         data.map((matchEvent) => (
           <>
             <SeriesCard
+            key={matchEvent?.seriesID}
               league={league.toUpperCase().substring(0, 3)}
               seriesName={matchEvent.seriesName}
             />
           <div className="flex flex-row width-[400px] overflow-x-auto">
-              {matchEvent.matches.map(match => (<MatchCard activeTab={activeTab} match={match}/>))}
+              {matchEvent.matches.map(match => (<MatchCard key={match?.matchNumber} activeTab={activeTab} match={match}/>))}
           </div>
           </>
         ))}
