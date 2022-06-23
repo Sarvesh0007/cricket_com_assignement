@@ -1,9 +1,8 @@
-import './App.css';
+import "./App.css";
+import LandingScreen from "./Pages/LandingScreen";
 
 function App() {
-  return (
-   <h1 className="text-3xl font-bold underline">Welcom to the assignment</h1>
-  );
+  return <LandingScreen />;
 }
 
 export default App;
