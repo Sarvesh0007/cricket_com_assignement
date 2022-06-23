@@ -1,5 +1,5 @@
 import React from "react";
-import { SeriesCard } from "../components/cards";
+import { MatchCard, SeriesCard } from "../components/cards";
 import Navigation from "../components/navigation";
 import { useCricketData } from "../graphql/hooks/useCricket";
 
@@ -38,7 +38,18 @@ const LandingScreen = () => {
         twMenuClasses="rounded-full px-3 py-2 font-medium"
         twActiveMenuClasses="border-solid border-2 border-green-500 rounded-full w-40 p-4 m-4 "
       />
-    {data && data.map(matchEvent => (<><SeriesCard league = {league.toUpperCase().substring(0,3) } seriesName={matchEvent.seriesName}/></>))}
+      {data &&
+        data.map((matchEvent) => (
+          <>
+            <SeriesCard
+              league={league.toUpperCase().substring(0, 3)}
+              seriesName={matchEvent.seriesName}
+            />
+          <div className="flex flex-row width-[400px] overflow-x-auto">
+              {matchEvent.matches.map(match => (<MatchCard activeTab={activeTab} match={match}/>))}
+          </div>
+          </>
+        ))}
     </div>
   );
 };

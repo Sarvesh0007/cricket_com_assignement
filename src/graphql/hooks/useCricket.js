@@ -11,6 +11,32 @@ export function useCricketData({ activeTab, league }) {
       gql`
         query schedule($type: String!, $status: String!) {
           newSchedule(type: $type, status: $status, page: 1) {
+            matches {
+              matchNumber
+              venue
+              matchdate
+              matchStatus
+              matchType
+              homeTeamID
+              homeTeamName
+              phaseOfInningFlag
+              awayTeamID
+              awayTeamName
+              teamsWinProbability {
+                homeTeamShortName
+                homeTeamPercentage
+                awayTeamPercentage
+                awayTeamShortName
+              }
+              matchScore {
+                teamShortName
+                teamFullName
+                teamID
+                teamScore {
+                  inning
+                }
+              }
+            }
             seriesID
             matchType
             seriesName

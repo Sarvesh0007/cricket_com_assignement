@@ -15,7 +15,7 @@ const Navigation = ({
         ([title, url]) =>
           (url === activeTab && (
             <button
-              className={`${twMenuClasses} ${twActiveMenuClasses || "border-b-4 border-blue-500 text-blue-500"}`}
+              className={`${twMenuClasses} ${twActiveMenuClasses || "border-b-4 border-blue-500 text-blue-500 grow"}`}
               onClick={() => setActiveTab(url)}
             >
               {title}
